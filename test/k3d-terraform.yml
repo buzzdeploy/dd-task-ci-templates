@@ -26,7 +26,7 @@ tasks:
     deps:
     - task: checkout
     cmds:
-      - defer: { task: cleanup }
+     # - defer: { task: cleanup }
       - defer: { task: destroy }
       - mkdir -p ./builds
       - task: create
