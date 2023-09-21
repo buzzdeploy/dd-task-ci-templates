@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+includes:
+  build-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/build/taskfile.yml
+  deploy-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/deploy/taskfile.yml
+
+tasks:
+  default:
+    cmds:
+      - task: build-templates:hello
+      - task: deploy-templates:hello
