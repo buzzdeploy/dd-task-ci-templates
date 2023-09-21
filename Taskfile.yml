@@ -2,11 +2,11 @@
 version: '3'
 
 includes:
-  # zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
   
-  zarf-templates:
-    taskfile: ./.taskfiles/zarf.yml
-    internal: true
+  # zarf-templates:
+  #   taskfile: ./.taskfiles/zarf.yml
+  #   internal: true
   
 vars:
   ZARF_DIR: ./retro

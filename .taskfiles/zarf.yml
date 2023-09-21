@@ -4,8 +4,7 @@ tasks:
   create:
     dir: "{{ .ZARF_DIR }}"
     cmds:
-      - echo {{ .ZARF_DIR }}
-      # - zarf package create --confirm
+      - zarf package create --confirm
 
   deploy:
     dir: "{{ .ZARF_DIR }}"
