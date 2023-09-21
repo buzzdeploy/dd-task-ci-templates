@@ -7,7 +7,7 @@ tasks:
       - echo 'Usage:'' task [task name(s)] [parameters]'
       - echo ''
       - echo 'View available tasks:'
-      - echo ''  task -a'
+      - echo '  task -a'
       - echo ''
       - echo 'Example:'
       - echo '  task local-deploy'
