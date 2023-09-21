@@ -2,16 +2,18 @@
 version: '3'
 
 includes:
-  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yaml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
+  
   # zarf-templates:
-  #   taskfile: ./.taskfile/zarf.yaml
+  #   taskfile: ./.taskfile/zarf.yml
   #   internal: true
-  #deploy-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/deploy/taskfile.yml
-  #test-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/test/does-the-name-matter.yml
+  
+vars:
+  - ZARF_DIR: './retro'
+
 tasks:
   default:
     cmds:
       - task: zarf-templates:create
-        vars: { ZARF_DIR: './retro' }
       #- task: deploy-templates:hello
       #- task: test-templates:hello

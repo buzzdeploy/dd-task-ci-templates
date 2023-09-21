@@ -1,0 +1,21 @@
+version: '3'
+
+vars:
+  ZARF_DIR: ./
+  REGISTRY: 
+
+tasks:
+  create:
+    dir: "{{ .ZARF_DIR }}"
+    cmds:
+      - zarf package create --confirm
+
+  deploy:
+    dir: "{{ .ZARF_DIR }}"
+    cmds:
+      - zarf package deploy --confirm
+
+  publish:
+    dir: "{{ .ZARF_DIR }}"
+    cmds:
+      - zarf package publish --confirm 
