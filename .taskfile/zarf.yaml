@@ -1,7 +1,11 @@
 version: '3'
 
+vars:
+  ZARF_DIR: /
+
 tasks:
   create:
+    dir: {{.ZARF_DIR}}
     silent: true
     cmds:
       - zarf p c

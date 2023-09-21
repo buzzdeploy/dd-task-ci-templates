@@ -2,11 +2,13 @@
 version: '3'
 
 includes:
-  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfile/zarf.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfile/zarf.yaml
   #deploy-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/deploy/taskfile.yml
   #test-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/test/does-the-name-matter.yml
 tasks:
   default:
+    vars:
+      ZARF_DIR: ./retro/
     cmds:
       - task: zarf-templates:create
       #- task: deploy-templates:hello
