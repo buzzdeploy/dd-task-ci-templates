@@ -14,4 +14,4 @@ tasks:
   publish:
     dir: "{{ .ZARF_DIR }}"
     cmds:
-      - zarf package publish --confirm 
+      - zarf package publish *{{ .PROJECT }}*.zst oci://{{ .REPOSITORY }}/{{ .PROJECT }} {{ .PUBLISH_FLAGS }}
