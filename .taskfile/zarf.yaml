@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  create:
+    silent: true
+    cmds:
+      - zarf p c
