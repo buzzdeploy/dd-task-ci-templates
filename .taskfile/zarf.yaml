@@ -8,5 +8,5 @@ tasks:
     # dir: {{.ZARF_DIR}}
     silent: true
     cmds:
-      - echo {{.ZARF_DIR}}
+      - echo "{{.ZARF_DIR}}"
       # - zarf p c
