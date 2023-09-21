@@ -5,7 +5,8 @@ vars:
 
 tasks:
   create:
-    dir: {{.ZARF_DIR}}
+    # dir: {{.ZARF_DIR}}
     silent: true
     cmds:
-      - zarf p c
+      - echo {{.ZARF_DIR}}
+      # - zarf p c
