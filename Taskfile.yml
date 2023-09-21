@@ -2,23 +2,44 @@
 version: '3'
 
 includes:
-  # zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/instructions.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
   
-  zarf-templates:
-    taskfile: ./.taskfiles/zarf.yml
-    internal: true
-  
+  # instructions:
+  #   taskfile: ./.taskfiles/instructions.yml
+  #   internal: true
+
+  # zarf-templates:
+  #   taskfile: ./.taskfiles/zarf-templates.yml
+  #   internal: true
+
 vars:
   PROJECT: retro
+  VERSION: 1.0.0
+  ARCHITECTURE: arm64
   ZARF_DIR: ./retro
+
   REPOSITORY: 127.0.0.1:5000
   PUBLISH_FLAGS: --insecure
+  DEPLOY_FLAGS: --insecure
 
 tasks:
   default:
     cmds:
-      - task: zarf-templates:create
-      - task: zarf-templates:publish
-        # vars: { ZARF_DIR: './retro'}
-      #- task: deploy-templates:hello
-      #- task: test-templates:hello
+      - task: instructions:default
+  
+  local-deploy:
+    cmds:
+      - task: zarf-templates:local-deploy
+
+  local-destroy:
+    cmds:
+      - task: zarf-templates:remove-tar
+
+  oci-deploy:
+    cmds:
+      - task: zarf-templates:oci-deploy
+
+  oci-destroy:
+    cmds:
+      - task: zarf-templates:remove-oci

@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  default:
+    silent: true
+    cmds:
+      - echo 'Usage:'
+      - echo '  task [task name]'
+      - echo ''
+      - echo 'Example:'
+      - echo '  task create deploy-tar'
