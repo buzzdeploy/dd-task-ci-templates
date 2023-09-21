@@ -2,8 +2,8 @@
 version: '3'
 
 includes:
-  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/instructions.yml
-  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf.yml
+  instructions: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/instructions.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf-templates.yml
   
   # instructions:
   #   taskfile: ./.taskfiles/instructions.yml

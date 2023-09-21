@@ -4,6 +4,15 @@ tasks:
   default:
     silent: true
     cmds:
+      - cat << EOF
+Usage: task [task name(s)] [parameters]
+
+View available tasks:
+  task -a
+
+Example:
+  task local-deploy
+EOF
       - echo 'Usage:'
       - echo '  task [task name]'
       - echo ''
