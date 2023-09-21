@@ -1,14 +1,11 @@
 version: '3'
 
-vars:
-  ZARF_DIR: ./
-  REGISTRY: 
-
 tasks:
   create:
     dir: "{{ .ZARF_DIR }}"
     cmds:
-      - zarf package create --confirm
+      - echo {{ .ZARF_DIR }}
+      # - zarf package create --confirm
 
   deploy:
     dir: "{{ .ZARF_DIR }}"
