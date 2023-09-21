@@ -4,17 +4,10 @@ tasks:
   default:
     silent: true
     cmds:
-      - cat << EOF
-Usage: task [task name(s)] [parameters]
-
-View available tasks:
-  task -a
-
-Example:
-  task local-deploy
-EOF
-      - echo 'Usage:'
-      - echo '  task [task name]'
+      - echo 'Usage:'' task [task name(s)] [parameters]'
+      - echo ''
+      - echo 'View available tasks:'
+      - echo ''  task -a'
       - echo ''
       - echo 'Example:'
-      - echo '  task create deploy-tar'
+      - echo '  task local-deploy'
