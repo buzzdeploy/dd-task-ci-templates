@@ -1,0 +1,26 @@
+kind: ZarfPackageConfig
+metadata:
+  name: podinfo
+  description: Simple example to load PodInfo
+  version: 1.0.0
+
+components:
+  - name: podinfo
+    required: true
+    charts:
+      - name: podinfo
+        version: 6.4.0
+        namespace: podinfo
+        url: https://github.com/stefanprodan/podinfo.git
+        gitPath: charts/podinfo
+    images:
+      - ghcr.io/stefanprodan/podinfo:6.4.0
+    actions:
+      onDeploy:
+        after:
+          - wait:
+            cluster:
+              kind: deployment
+              namespace: podinfo
+              name: podinfo
+              condition: available

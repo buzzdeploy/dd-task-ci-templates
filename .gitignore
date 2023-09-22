@@ -1,2 +1,4 @@
 .task/
 *.zst
+.DS_Store
+

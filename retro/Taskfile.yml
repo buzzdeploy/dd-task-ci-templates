@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+includes:
+  instructions: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/instructions.yml
+  zarf-templates: https://raw.githubusercontent.com/buzzdeploy/dd-task-ci-templates/initialize_repo/.taskfiles/zarf-templates.yml
+  
+vars:
+  PROJECT: retro
+  VERSION: 1.0.0
+  ARCHITECTURE: arm64
+  ZARF_DIR: ./
+
+  REPOSITORY: 127.0.0.1:5000
+  PUBLISH_FLAGS: --insecure
+  DEPLOY_FLAGS: --insecure
+
+tasks:
+  default:
+    cmds:
+      - task: instructions:default
+  
+  local-deploy:
+    cmds:
+      - task: zarf-templates:local-deploy
+      - task: zarf-templates:service-health
+        vars: { SERVICE: 'game', NAMESPACE: 'dos-games' }
+
+  local-destroy:
+    cmds:
+      - task: zarf-templates:remove-tar
+
+  oci-deploy:
+    cmds:
+      - task: zarf-templates:oci-deploy
+      - task: zarf-templates:service-health
+        vars: { SERVICE: 'game', NAMESPACE: 'dos-games' }
+
+  oci-destroy:
+    cmds:
+      - task: zarf-templates:remove-oci
