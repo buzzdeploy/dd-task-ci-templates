@@ -9,12 +9,15 @@ components:
     required: true
     charts:
       - name: podinfo
-        version: 6.4.0
+        version: 6.4.1
         namespace: podinfo
-        url: https://github.com/stefanprodan/podinfo.git
-        gitPath: charts/podinfo
+        localPath: chart
+        valuesFiles:
+          - chart/values.yaml
+        # url: https://github.com/stefanprodan/podinfo.git
+        # gitPath: charts/podinfo
     images:
-      - ghcr.io/stefanprodan/podinfo:6.4.0
+      - ghcr.io/stefanprodan/podinfo:6.4.1
     actions:
       onDeploy:
         after:
