@@ -26,23 +26,34 @@ tasks:
     deps:
     - task: checkout
     cmds:
-     # - defer: { task: cleanup }
       - defer: { task: destroy }
       - mkdir -p ./builds
       - task: create
 
   create:
+    deps:
+    - task: checkout
+    requires:
+      vars: [REF, REPO_URL, ID]
     dir: "{{.WORK_DIR}}/{{ .CLONE_DIR }}/{{ .TF_DIR }}"
     cmds:
      - ./create-cluster.sh
 
   destroy:
+    deps:
+      - task: checkout
+    requires:
+      vars: [REF, REPO_URL, ID]
     dir: "{{.WORK_DIR}}/{{ .CLONE_DIR }}/{{ .TF_DIR }}"
     cmds:
      - ./teardown-cluster.sh
 
   # Checkout source repo
   checkout:
+    requires:
+      vars: [REF, REPO_URL, ID]
+    status:
+      - test -d "{{ .CLONE_DIR }}"
     dir: "{{.WORK_DIR}}"
     cmds:
      - task: cleanup
