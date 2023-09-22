@@ -1,6 +1,8 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: '3'
 
 tasks:
+  # Local tar.zst files
   create:
     dir: "{{ .ZARF_DIR }}"
     cmds:
@@ -21,6 +23,7 @@ tasks:
           zarf-package-{{ .PROJECT }}-{{ .ARCHITECTURE }}-{{ .VERSION }}.tar.zst
           --confirm
   
+  # OCI
   publish:
     dir: "{{ .ZARF_DIR }}"
     cmds:
@@ -46,8 +49,13 @@ tasks:
           --confirm
           {{ .DEPLOY_FLAGS}}
 
-  # META
+  # Health Check Tools
+  service-health:
+    dir: "{{ .ZARF_DIR }}"
+    cmds:
+      - zarf tools wait-for svc {{ .SERVICE }} -n {{ .NAMESPACE }}
 
+  # META
   local-deploy:
     dir: "{{ .ZARF_DIR }}"
     cmds:

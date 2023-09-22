@@ -31,6 +31,8 @@ tasks:
   local-deploy:
     cmds:
       - task: zarf-templates:local-deploy
+      - task: zarf-templates:service-health
+        vars: { SERVICE: 'game', NAMESPACE: 'dos-games' }
 
   local-destroy:
     cmds:
